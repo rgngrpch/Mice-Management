@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+<h1 style="color:red;" align = "middle">Welcome To Mickey</h1>
+
+<% if user_signed_in? %>
+
+<h2>Listing Cages</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cage ID</th>
+      <th>User ID</th>
+      <th>Cage name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <% if current_user.admin? %>
+  <tbody>
+    <% @cages.each do |cage| %>
+      <tr>
+        <td><%= cage.id %></td>
+        <td><%= cage.user.id %></td>
+        <td><%= cage.cage_name %></td>
+        <td><%= link_to 'Show', cage %></td>
+        <td><%= link_to 'Edit', edit_cage_path(cage) %></td>
+        <td><%= link_to 'Destroy', cage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  <% else %>
+
+
+  <tbody>
+    <% @cages.each do |cage| %>
+      <tr>
+        <% if cage.user == current_user %>
+        <td><%= cage.id %></td>
+        <td><%= cage.user.id %></td>
+        <td><%= cage.cage_name %></td>
+        <td><%= link_to 'Show', cage %></td>
+        <td><%= link_to 'Edit', edit_cage_path(cage) %></td>
+        <td><%= link_to 'Destroy', cage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+  <% end %>
+
+</table>
+
+<br>
+
+<%= link_to 'New Cage', new_cage_path %>
+<br>
+
+<%= link_to 'Back to Main Page', '/' %>
+
+
+<% end %>

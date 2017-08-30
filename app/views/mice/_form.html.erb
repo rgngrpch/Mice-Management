@@ -1,0 +1,52 @@
+<%= form_for(@mouse) do |f| %>
+  <% if @mouse.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mouse.errors.count, "error") %> prohibited this mouse from being saved:</h2>
+
+      <ul>
+      <% @mouse.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tag_number %><br>
+    <%= f.number_field :tag_number %>
+  </div>
+  <div class="field">
+    <%= f.label :genome %><br>
+    <%= f.text_field :genome %>
+  </div>
+  <div class="field">
+    <%= f.label :parent_information %><br>
+    <%= f.number_field :parent_information %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br>
+    <%= f.select :sex, ['Male','Female'] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_of_birth %><br>
+    <%= f.date_select :date_of_birth %>
+    <%= javascript_tag do%>
+    var currDate = new Date('<%= Date.today%>');
+    <%end%>
+  </div>
+
+<div class="field">
+    <%= f.label :cage_id %><br>
+    <%= f.collection_select :cage_id, current_user.cages, :id, :cage_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id, :value => current_user.id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

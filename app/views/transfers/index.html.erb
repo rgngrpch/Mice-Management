@@ -1,0 +1,40 @@
+<h1 style="color:red;" align = "middle">Welcome To Mickey</h1>
+<% if current_user.admin? %>
+
+<h2>Listing Transfers</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>TO-Cage ID</th>
+      <th>Mouse ID</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transfers.each do |transfer| %>
+      <tr>
+        <td><%= transfer.cage.id %></td>
+        <td><%= link_to transfer.mouse.id, mouse_path(transfer.mouse) %></td>
+        <td><%= link_to 'Approve transfer', approve_transfer_path(transfer, cage_id: transfer.cage.id, mouse_id: transfer.mouse.id, id: transfer.id) %></td>
+        <td><%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transfer', new_transfer_path %>
+<br>
+
+<%= link_to 'Back to Main Page', '/' %>
+
+<% else %>
+
+<p style="color:blue;" align = "middle"> You are not authorized to visit this page. God knows how did you even get here. Please click the link below to go back. Thank you! </p>
+
+<%= link_to 'Back to Main Page', '/' %>
+
+<% end %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mouse genome:</strong>
+  <%= @production.mouse_genome %>
+</p>
+<% if current_user.admin? %>
+<p>
+  <strong>Mother tag number:</strong>
+  <%= @production.mother_tag_number %>
+</p>
+
+<p>
+  <strong>Mouse tag number:</strong>
+  <%= @production.mouse_tag_number %>
+</p>
+<% end %>
+<%= link_to 'Edit', edit_production_path(@production) %> |
+<%= link_to 'Back to Main Page', '/' %>

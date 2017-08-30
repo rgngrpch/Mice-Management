@@ -1,0 +1,25 @@
+<%= form_for(@transfer) do |f| %>
+  <% if @transfer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transfer.errors.count, "error") %> Prohibited this transfer from being saved:</h2>
+
+      <ul>
+      <% @transfer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="field">
+    <%= f.label "Mouse Tag" %><br>
+     <%= f.collection_select :mouse_id, current_user.mice, :id, :tag_number %>  </div>
+  </div>
+
+  <div class="field">
+<%= label_tag(:cage_id, "To cage") %><br>
+ <%= f.collection_select :cage_id, @cages, :id, :cage_name %>  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

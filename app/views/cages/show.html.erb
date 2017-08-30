@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cage name:</strong>
+  <%= @cage.cage_name %>
+</p>
+
+<p>
+  <strong>User ID:</strong>
+  <%= current_user.id %>
+</p>
+<% @count = 0 %>
+<% @cage.mice.each do |mouse| %>
+<% @count+=1 %>
+<h2> Mouse <%= @count %> </h2>
+
+<p>
+  <strong>Mouse Genome:</strong>
+  <%= mouse.genome %>
+</p>
+
+<p>
+  <strong>Mouse Tag:</strong>
+  <%= mouse.tag_number %>
+</p>
+
+<p>
+  <strong>Mouse Sex:</strong>
+  <%= mouse.sex %>
+</p>
+
+<% end %>
+
+<%= link_to 'Edit Cage Name', edit_cage_path(@cage) %> |
+<%= link_to 'Back To Cages', cages_path %>

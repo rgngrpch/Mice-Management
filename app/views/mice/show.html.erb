@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tag number:</strong>
+  <%= @mouse.tag_number %>
+</p>
+
+<p>
+  <strong>Genome:</strong>
+  <%= @mouse.genome %>
+</p>
+
+<p>
+  <strong>Parent information:</strong>
+  <%= @mouse.parent_information %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @mouse.sex %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @mouse.date_of_birth %>
+</p>
+
+
+<p>
+  <strong>Age:</strong>
+<%= Date.today.year - @mouse.date_of_birth.year%>
+</p>
+
+<p>
+  <strong>Cage ID:</strong>
+  <%= @mouse.cage_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_mouse_path(@mouse) %> |
+<%= link_to 'Back', mice_path %>

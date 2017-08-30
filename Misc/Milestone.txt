@@ -1,0 +1,33 @@
+managementmice@gmail.com
+Uofmmanagement38111
+
+MILESTONE 1:
+Login -1
+Add Mouse - 1
+Delete Mouse -1
+Change Cage -1
+View Mice Information -1
+Logout -1
+Register - 1
+Change Information -2
+Add Cage -2
+Select Mice -2
+
+MILESTONE 2:
+Transfer Mouse -2
+User Notifications (Mouse info change, Cage update(baby mice)) -2
+When admin selects a mice for production, if the mouse is less than 2 weeks, it cannot be accepted.
+Mouse transfer authentication - 2
+Drop down for cage id that belong to the user and gender when adding a new mouse -2
+Drop down for mouse id that belong to the user when requesting a new transfer -2
+Search bar for user page - 2
+Age should auto populate when you add birth date for new mouse/edit mouse -2
+Admin role and his pages -2
+A text description under mouse index page where we can add history of the mouse -2
+
+Add a button for request production of a specific genome -2
+
+
+
+
+

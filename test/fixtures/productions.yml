@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mouse_genome: MyString
+  mother_tag_number: 1
+
+two:
+  mouse_genome: MyString
+  mother_tag_number: 1

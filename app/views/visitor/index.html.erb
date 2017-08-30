@@ -1,0 +1,44 @@
+<h1 style="color:red;" align = "middle">Welcome To Mickey</h1>
+
+<% if user_signed_in? %>
+
+<input type="button"  onclick="window.location.href='/mice'" value="List all mice" style="float: right;">
+<input type="button"  onclick="window.location.href='/cages'" value="List all cages" style="float: right;">
+<h2>Listing User Details</h2>
+<td>Your User ID:<%= current_user.id %></td>
+
+<table>
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>User Name</th>
+      <th>User Cages</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% current_user.cages.each do |cage| %>
+      <tr>
+        <td><%= current_user.id %></td>
+        <td><%= current_user.name %></td>
+        <td><%= link_to cage.id, cage_path(cage.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2><p> </p></h2>
+<button onclick="window.location.href='/mice/new'">Add a mouse</button>
+<button onclick="window.location.href='/cages/new'">Add a cage</button>
+
+<% if current_user.admin? %>
+<button onclick="window.location.href='/transfers'">List all transfers</button>
+<button onclick="window.location.href='/notifications'">List all notifications</button>
+<button onclick="window.location.href='/productions'">List all productions</button>
+<% else %>
+<button onclick="window.location.href='/transfers/new'">Request a transfer</button>
+<button onclick="window.location.href='/productions/new'">Request a production</button>
+<% end %>
+<br>
+<% end %>

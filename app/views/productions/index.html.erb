@@ -1,0 +1,41 @@
+<h1 style="color:red;" align = "middle">Welcome To Mickey</h1>
+<% if current_user.admin? %>
+
+<h1>Listing Productions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mouse genome</th>
+      <th>Mother tag number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @productions.each do |production| %>
+      <tr>
+        <td><%= production.mouse_genome %></td>
+        <td><%= production.mother_tag_number %></td>
+        <td><%= link_to 'Approve production', approve_production_path(production, mouse_genome: production.mouse_genome, mother_tag_number: production.mother_tag_number, id: production.id) %></td>
+        <td><%= link_to 'Edit', edit_production_path(production) %></td>
+        <td><%= link_to 'Destroy', production, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Production', new_production_path %>
+<br>
+
+<%= link_to 'Back to Main Page', '/' %>
+
+<% else %>
+
+<p style="color:blue;" align = "middle"> You are not authorized to visit this page. God knows how did you even get here. Please click the link below to go back. Thank you! </p>
+
+<%= link_to 'Back to Main Page', '/' %>
+
+<% end %>

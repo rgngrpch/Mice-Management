@@ -1,0 +1,20 @@
+Rakshit Choudhary:
+User Notifications (Mouse info change, Cage update(baby mice)) - done for transfer and production
+User shall be able to request the admin for mice production for a specific genome type. - done
+When admin selects a mice for production, if the mouse is less than 2 weeks, it cannot be accepted. - not done
+Mouse transfer authentication - 2 - done
+Search bar for user page - 2 - not done
+
+add validations to production field
+
+Aditya Murthy:
+Test cases for user and cage
+
+Faisal Subaei:
+Drop down for mouse id that belong to the user when requesting a new transfer -2
+Test cases for mice and transfer
+
+Suhaib Rousan:
+Drop down for cage id that belong to the user and gender when adding a new mouse -2
+Age should auto populate when you add birth date for new mouse/edit mouse -2
+A text description under mouse index page where we can add history of the mouse -2

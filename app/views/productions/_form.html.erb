@@ -1,0 +1,46 @@
+<%= form_for(@production) do |f| %>
+  <% if @production.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@production.errors.count, "error") %> prohibited this production from being saved:</h2>
+
+      <ul>
+      <% @production.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mouse_genome %><br>
+    <%= f.text_field :mouse_genome %>
+  </div>
+
+  <div class="field">
+    <%= f.label "User ID" %><br>
+    <%= f.text_field :user_id, :value => current_user.id %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Cage the new mouse should belong to" %><br>
+    <%= f.collection_select :cage_id, current_user.cages, :id, :cage_name %>
+  </div>
+  <% if current_user.admin? %>
+  <div class="field">
+    <%= f.label "Mother_tag_number(Not to be filled by the user requesting)" %><br>
+    <%= f.text_field :mother_tag_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Mouse Tag Number" %><br>
+    <%= f.text_field :mouse_tag_number %>
+  </div>
+
+  <% end %>
+
+  <%= link_to 'Back to Main Page', '/' %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

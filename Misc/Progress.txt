@@ -1,0 +1,40 @@
+cages done
+mice done
+added list all transfers button to the home page
+if a scientist visits the transfer page it will be blocked
+transfer page drop down set
+cage page drop down set
+age calculation set
+
+
+
+deleting user should delete all
+
+deleting a user will not delete his mice and cages
+
+
+   <div class="field">
+    <%= f.label "Mouse Tag Number" %><br>
+    <%= f.text_field :mouse_tag_number %>
+  </div>
+
+do uml
+write that document
+record video and time stamps
+
+
+1 = intro 1
+2 = intro 2
+RC it 1 part 1 = 3
+Rc it 1 part 2 = 4
+Aditya it 1 full = 5
+Suhaib it 1 part 1 = 6
+Suhaib it 1 part 2 = 7
+Suhaib it 1 part 3 = 8
+Faisal it 1 part 1 = 9
+Faisal it 1 part 1 = 10
+Faisal it 2 = 11
+Aditya it 2 full = 12
+Suhaib it 2 = 13
+Rc iteration 2 = 14
+End = 15
